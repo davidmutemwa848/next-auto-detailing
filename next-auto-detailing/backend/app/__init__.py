@@ -35,7 +35,7 @@ def create_app(test_config=None):
   from werkzeug.security import generate_password_hash
   from sqlalchemy import select
   email=os.getenv('OWNER_EMAIL','').strip().lower();pw=os.getenv('OWNER_INITIAL_PASSWORD','')
-  if not email or len(pw)<12: raise SystemExit('Set OWNER_EMAIL and a private initial password of at least 12 characters.')
+  if not email or len(pw)<12: raise SystemExit('Set OWNER_EMAIL and a private initial password of at least 6 characters.')
   if db.session.scalar(select(User).where(User.email==email)): raise SystemExit('Owner already exists.')
   db.session.add(User(name='Business Owner',email=email,role='owner',password_hash=generate_password_hash(pw,method='scrypt'),must_change_password=True,email_verified=True));db.session.commit();print('Owner created; change password at first login.')
  return app
