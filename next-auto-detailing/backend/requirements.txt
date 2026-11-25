@@ -1,0 +1,1 @@
+Flask==3.1.0\nFlask-SQLAlchemy==3.1.1\nFlask-Migrate==4.0.7\nFlask-Limiter==3.9.2\nFlask-Cors==5.0.0\nFlask-WTF==1.2.2\nemail-validator==2.2.0\npsycopg[binary]==3.2.3\ngunicorn==23.0.0\npython-dotenv==1.0.1\n

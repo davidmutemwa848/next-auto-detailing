@@ -1,0 +1,1 @@
+Place approved extracted media here before production: hero.mp4 (H.264), hero-poster.jpg, gallery images. Original ZIP is preserved at assets/original-company-media.zip. Do not publish screenshot UI captures.

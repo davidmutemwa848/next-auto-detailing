@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: next-auto-detailing-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn wsgi:app --workers 2 --threads 4 --timeout 90
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: next-auto-detailing-db
+          property: connectionString
+      - key: FRONTEND_ORIGIN
+        sync: false
+      - key: COOKIE_SECURE
+        value: "true"
+databases:
+  - name: next-auto-detailing-db
+    databaseName: next_auto_detailing
+    user: next_auto_detailing
